@@ -1,1 +1,4 @@
 Create divs and use the border-bottom border-left border-right attributes to create one.
+
+
+1 rem = body font size (I believe yours is 10px, so 1 rem = 10 px! you can use decimals as well. For example 1.2 rem = 12 px)

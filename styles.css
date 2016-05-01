@@ -2,6 +2,10 @@
     border-left: thick solid #ff0000;
 }
 
+.board {
+	width: 600px;
+	margin: 0 auto;
+}
 .box-content {
     display: inline-block;
     width: 200px;
