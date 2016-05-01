@@ -2,3 +2,7 @@ Create divs and use the border-bottom border-left border-right attributes to cre
 
 
 1 rem = body font size (I believe yours is 10px, so 1 rem = 10 px! you can use decimals as well. For example 1.2 rem = 12 px)
+
+
+html - Draw an X in CSS - Stack Overflow
+https://stackoverflow.com/questions/18920542/draw-an-x-in-css
