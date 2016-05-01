@@ -5,58 +5,69 @@
 .box-content {
     display: inline-block;
     width: 200px;
-    padding: 10px;
+    min-height: 150px;
 }
 
 .top {
     border-bottom: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .top-middle {
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
+	border-width: 15px;
 }
 
 .top-right {
     border-left: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .top-left {
     border-right: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .middle {
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .middle-middle {
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
+	border-width: 15px;
 }
 
 .middle-right {
     border-left: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .middle-left {
     border-right: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .bottom {
     border-top: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .bottom-middle {
 	border-left: 1px solid #ccc;
 	border-right: 1px solid #ccc;
+	border-width: 15px;
 }
 
 .bottom-right {
     border-left: 1px solid #ccc;
+    border-width: 15px;
 }
 
 .bottom-left {
     border-right: 1px solid #ccc;
+    border-width: 15px;
 }
-
