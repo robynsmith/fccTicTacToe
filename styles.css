@@ -12,6 +12,10 @@
     min-height: 150px;
 }
 
+.box-content:hover { 
+    background-color: white;
+}
+
 .top {
     border-bottom: 1px solid #ccc;
     border-width: 15px;
