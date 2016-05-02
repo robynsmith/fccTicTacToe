@@ -1,3 +1,11 @@
+.xo-style {
+    color: black;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    font-size: 5em;
+    font-weight: bold;
+    text-align: center;    
+}
+
 .verticalLine {
     border-left: thick solid #ff0000;
 }
