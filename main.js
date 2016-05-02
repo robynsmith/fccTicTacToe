@@ -6,14 +6,15 @@ $(document).ready(function() {
 
     console.log($(this).text().length);
 
-    if ( $(this).text().lenght === 0 ) {
+    if ( $(this).text().length > 0 ) {
       //do nothing
+      return 0;
     } 
     else if (playerTurn === "x") {
       $(this).html("x");
       playerTurn = "o";
     } else if (playerTurn === "o") {
-      $(this).html("x");
+      $(this).html("o");
       playerTurn = "x";
     }
   });
