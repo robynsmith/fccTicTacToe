@@ -1,4 +1,3 @@
-var playerTurn = "x";
 var board = [];
 var nameIndex = {"top-left":0,
   "top-middle":1,
@@ -35,25 +34,23 @@ $(document).ready(function() {
       return 0;
     } 
     
-    if (playerTurn === "x") {
-      $(this).html("x");
-      board[nameIndex[buttonContent]] = "x";
-      console.log(board);
-      playerTurn = "o";
-      console.log("computerTurn()");
-      //TODO: create AI that pics spot randomly
-      //TODO: Win condition
+    
+   $(this).html("x");
+    board[nameIndex[buttonContent]] = "x";
+    console.log(board);
+    playerTurn = "o";
+    console.log("computerTurn()");
+    //TODO: create AI that pics spot randomly
+    //TODO: Win condition
 
-      play = getRandomInt(0,8);
+    play = getRandomInt(0,8);
+    console.log("play:"+play);
+    while (typeof board[play] !== 'undefined') {
+      play = getRandomInt(0, 8);
       console.log("play:"+play);
-      while (typeof board[play] !== 'undefined') {
-        play = getRandomInt(0, 8);
-        console.log("play:"+play);
-      }
-      $().html("o");
-      board[play] = "o";
-      console.log(board);
-      playerTurn = "x";
     }
+    $().html("o");
+    board[play] = "o";
+    console.log(board);
   });
 });
