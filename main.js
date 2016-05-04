@@ -10,8 +10,18 @@ var nameIndex = {"top-left":0,
   "bottom-middle":7,
   "bottom-right":8}
 
-function computerTurn() {
-  console.log("computerTurn()");
+var indexName = {0:"top-left",
+  1:"top-middle",
+  2:"top-right",
+  3:"middle-left",
+  4:"middle-middle",
+  5:"middle-right",
+  6:"bottom-left",
+  7:"bottom-middle",
+  8:"bottom-right"}
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 $(document).ready(function() {
@@ -27,8 +37,23 @@ $(document).ready(function() {
     
     if (playerTurn === "x") {
       $(this).html("x");
+      board[nameIndex[buttonContent]] = "x";
+      console.log(board);
       playerTurn = "o";
-      computerTurn();
+      console.log("computerTurn()");
+      //TODO: create AI that pics spot randomly
+      //TODO: Win condition
+
+      play = getRandomInt(0,8);
+      console.log("play:"+play);
+      while (typeof board[play] !== 'undefined') {
+        play = getRandomInt(0, 8);
+        console.log("play:"+play);
+      }
+      $().html("o");
+      board[play] = "o";
+      console.log(board);
+      playerTurn = "x";
     }
   });
 });
