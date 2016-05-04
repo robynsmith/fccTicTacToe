@@ -11,13 +11,13 @@
 }
 
 .board {
-	width: 600px;
+	width: 80%;
 	margin: 0 auto;
 }
 .box-content {
     display: inline-block;
-    width: 200px;
-    min-height: 150px;
+    width: 30%;
+    min-height: 20%;
 }
 
 .box-content:hover { 
