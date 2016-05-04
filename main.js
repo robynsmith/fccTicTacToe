@@ -19,6 +19,21 @@ var indexName = {0:"top-left",
   7:"bottom-middle",
   8:"bottom-right"}
 
+// Checks
+
+function movesLeft() {
+  var movesLeftFlag = false;
+
+  for (var i = 0; i < 9; i++) {
+    if (typeof board[i] === 'undefined') {
+      movesLeftFlag = true;
+      break;
+    }
+  }
+
+  return movesLeftFlag;
+}
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -29,16 +44,18 @@ $(document).ready(function() {
 
     console.log($(this).text().length);
 
-    if ( $(this).text().length > 0 ) {
+    if ( $(this).text().length > 0 || movesLeft() === false) {
       //do nothing
       return 0;
     } 
     
     
-   $(this).html("x");
+    $(this).html("x");
     board[nameIndex[buttonContent]] = "x";
     console.log(board);
-    playerTurn = "o";
+    if (movesLeft() === false) {
+      return 0;
+    }
     console.log("computerTurn()");
     //TODO: create AI that pics spot randomly
     //TODO: Win condition
@@ -49,8 +66,11 @@ $(document).ready(function() {
       play = getRandomInt(0, 8);
       console.log("play:"+play);
     }
-    $().html("o");
+    console.log(indexName[play]);
+    $("."+indexName[play]).html("o");
     board[play] = "o";
     console.log(board);
+
+
   });
 });
