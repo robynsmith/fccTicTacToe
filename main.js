@@ -34,6 +34,80 @@ function movesLeft() {
   return movesLeftFlag;
 }
 
+/*
+Win conditions:
+
+Down:
+
+Left: 0,3, 6 same
+Middle: 1, 4, 7 same
+Right: 2, 5, 8 same
+
+Across:
+
+Top: 0, 1, 2
+Middle: 3, 4, 5
+Bottom: 6, 7, 8
+
+Diagonally:
+
+top-left-to-right-bottom: 0, 4, 8
+bommtom-left-to-right-top: 6, 4, 2
+
+*/
+function winCheck() {
+  //Down-left
+  if (board[0] === board[3] && board[0] === board[6]) {
+    if (typeof board[0] !== "undefined") {
+      return board[0];
+    }
+  }
+  //Down-middle
+  if (board[1] === board[4] && board[1] === board[7]) {
+    if (typeof board[1] !== "undefined") {
+      return board[1];
+    }
+  }
+  //Down-right
+  if (board[2] === board[5] && board[2] === board[8]) {
+    if (typeof board[2] !== "undefined") {
+      return board[2];
+    }
+  }
+  //Accross-top
+  if (board[0] === board[1] && board[0] === board[2]) {
+    if (typeof board[0] !== "undefined") {
+      return board[0];
+    }
+  }
+  //Accross-middle
+  if (board[3] === board[4] && board[3] === board[5]) {
+    if (typeof board[3] !== "undefined") {
+      return board[3];
+    }
+  }
+  //accross-bottom
+  if (board[6] === board[7] && board[6] === board[8]) {
+    if (typeof board[6] !== "undefined") {
+      return board[6];
+    }
+  }
+  //diagonally left-to-right down
+  if (board[0] === board[4] && board[0] === board[8]) {
+    if (typeof board[0] !== "undefined") {
+        return board[0];
+    }
+  }
+  //Diagonally left-to-right up
+  if (board[6] === board[4] && board[6] === board[2]) {
+    if (typeof board[6] !== "undefined") {
+        return board[6];
+    }
+  }
+
+  return 0;
+}
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -44,7 +118,7 @@ $(document).ready(function() {
 
     console.log($(this).text().length);
 
-    if ( $(this).text().length > 0 || movesLeft() === false) {
+    if ( $(this).text().length > 0 || movesLeft() === false || winCheck() !== 0) {
       //do nothing
       return 0;
     } 
@@ -56,6 +130,13 @@ $(document).ready(function() {
     if (movesLeft() === false) {
       return 0;
     }
+
+    if (winCheck() === "x") {
+      console.log("X Wins!");
+    } else if (winCheck() === "o") {
+      console.log("O Wins!");
+    }
+
     console.log("computerTurn()");
     //TODO: create AI that pics spot randomly
     //TODO: Win condition
@@ -71,6 +152,11 @@ $(document).ready(function() {
     board[play] = "o";
     console.log(board);
 
+    if (winCheck() === "x") {
+      console.log("X Wins!");
+    } else if (winCheck() === "o") {
+      console.log("O Wins!");
+    }
 
   });
 });
