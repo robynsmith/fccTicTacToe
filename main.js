@@ -1,5 +1,6 @@
 var board = [];
 var player = "X";
+var computer = "O";
 
 var nameIndex = {"top-left":0,
   "top-middle":1,
@@ -110,6 +111,11 @@ function winCheck() {
   return 0;
 }
 
+function clearBoard() {
+  board = [];
+  $(".box-content").html("");
+}
+
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -121,10 +127,15 @@ $(document).ready(function() {
       return 0;
     }
 
+    clearBoard();
+
+
     if (player === "X") {
       player = "O";
+      computer = "X";
     } else {
       player = "X";
+      computer = "O";
     }
 
     $(this).html("Playing as " + player);
