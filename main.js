@@ -1,4 +1,6 @@
 var board = [];
+var player = "X";
+
 var nameIndex = {"top-left":0,
   "top-middle":1,
   "top-right":2,
@@ -113,6 +115,22 @@ function getRandomInt(min, max) {
 }
 
 $(document).ready(function() {
+  $(".btn").click(function() {
+    console.log("Toggle!");
+    if (!confirm("Warning: Switching sides will reset the board!")) {
+      return 0;
+    }
+
+    if (player === "X") {
+      player = "O";
+    } else {
+      player = "X";
+    }
+
+    $(this).html("Playing as " + player);
+
+  });
+
   $(".box-content").click(function() {
     var buttonContent = $(this).attr("value");
 
