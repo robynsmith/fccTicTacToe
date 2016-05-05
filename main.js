@@ -150,19 +150,18 @@ $(document).ready(function() {
     if ( $(this).text().length > 0 || movesLeft() === false || winCheck() !== 0) {
       //do nothing
       return 0;
-    } 
-    
-    
-    $(this).html("x");
-    board[nameIndex[buttonContent]] = "x";
+    }
+
+    $(this).html(player);
+    board[nameIndex[buttonContent]] = player;
     console.log(board);
     if (movesLeft() === false) {
       return 0;
     }
 
-    if (winCheck() === "x") {
+    if (winCheck() === "X") {
       console.log("X Wins!");
-    } else if (winCheck() === "o") {
+    } else if (winCheck() === "O") {
       console.log("O Wins!");
     }
 
@@ -177,14 +176,16 @@ $(document).ready(function() {
       console.log("play:"+play);
     }
     console.log(indexName[play]);
-    $("."+indexName[play]).html("o");
-    board[play] = "o";
+    $("."+indexName[play]).html(computer);
+    board[play] = computer;
     console.log(board);
 
-    if (winCheck() === "x") {
-      console.log("X Wins!");
-    } else if (winCheck() === "o") {
-      console.log("O Wins!");
+    if (winCheck() === "X") {
+      alert("X Wins!");
+      clearBoard();
+    } else if (winCheck() === "O") {
+      alert("O Wins!");
+      clearBoard();
     }
 
   });
