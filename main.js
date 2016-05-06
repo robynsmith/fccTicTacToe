@@ -122,7 +122,6 @@ function getRandomInt(min, max) {
 
 $(document).ready(function() {
   $(".btn").click(function() {
-    console.log("Toggle!");
     if (!confirm("Warning: Switching sides will reset the board!")) {
       return 0;
     }
@@ -145,8 +144,6 @@ $(document).ready(function() {
   $(".box-content").click(function() {
     var buttonContent = $(this).attr("value");
 
-    console.log($(this).text().length);
-
     if ( $(this).text().length > 0 || movesLeft() === false || winCheck() !== 0) {
       //do nothing
       return 0;
@@ -154,31 +151,25 @@ $(document).ready(function() {
 
     $(this).html(player);
     board[nameIndex[buttonContent]] = player;
-    console.log(board);
+
     if (movesLeft() === false) {
       return 0;
     }
 
     if (winCheck() === "X") {
-      console.log("X Wins!");
     } else if (winCheck() === "O") {
-      console.log("O Wins!");
     }
 
-    console.log("computerTurn()");
     //TODO: create AI that pics spot randomly
     //TODO: Win condition
 
     play = getRandomInt(0,8);
-    console.log("play:"+play);
     while (typeof board[play] !== 'undefined') {
       play = getRandomInt(0, 8);
-      console.log("play:"+play);
     }
-    console.log(indexName[play]);
+
     $("."+indexName[play]).html(computer);
     board[play] = computer;
-    console.log(board);
 
     if (winCheck() === "X") {
       alert("X Wins!");
