@@ -37,6 +37,10 @@ function movesLeft() {
   return movesLeftFlag;
 }
 
+function isEmpty(index) {
+  return (typeof board[index] !== "undefined");
+}
+
 /*
 Win conditions:
 
@@ -61,49 +65,49 @@ bommtom-left-to-right-top: 6, 4, 2
 function winCheck() {
   //Down-left
   if (board[0] === board[3] && board[0] === board[6]) {
-    if (typeof board[0] !== "undefined") {
+    if (isEmpty(0)) {
       return board[0];
     }
   }
   //Down-middle
   if (board[1] === board[4] && board[1] === board[7]) {
-    if (typeof board[1] !== "undefined") {
+    if (isEmpty(1)) {
       return board[1];
     }
   }
   //Down-right
   if (board[2] === board[5] && board[2] === board[8]) {
-    if (typeof board[2] !== "undefined") {
+    if (isEmpty(2)) {
       return board[2];
     }
   }
   //Accross-top
   if (board[0] === board[1] && board[0] === board[2]) {
-    if (typeof board[0] !== "undefined") {
+    if (isEmpty(0)) {
       return board[0];
     }
   }
   //Accross-middle
   if (board[3] === board[4] && board[3] === board[5]) {
-    if (typeof board[3] !== "undefined") {
+    if (isEmpty(3)) {
       return board[3];
     }
   }
   //accross-bottom
   if (board[6] === board[7] && board[6] === board[8]) {
-    if (typeof board[6] !== "undefined") {
+    if (isEmpty(6)) {
       return board[6];
     }
   }
   //diagonally left-to-right down
   if (board[0] === board[4] && board[0] === board[8]) {
-    if (typeof board[0] !== "undefined") {
+    if (isEmpty(0)) {
         return board[0];
     }
   }
   //Diagonally left-to-right up
   if (board[6] === board[4] && board[6] === board[2]) {
-    if (typeof board[6] !== "undefined") {
+    if (isEmpty(6)) {
         return board[6];
     }
   }
